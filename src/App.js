@@ -25,8 +25,9 @@ export default function App() {
       const timestamp = new Date().getTime();
       // const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(csvUrl)}&t=${timestamp}`;
 
+
       const sheetId = "13rSTnsPpD3zRiBIMmIkiZsZZJloYy12MMMTjlUF2TeI";
-      const apiKey = "AIzaSyC68vsIOaTEso2evCDxj8P-SYRl7bxuAKI";
+      const apiKey = process.env.REACT_APP_API_KEY;
       const range = "Sheet1!A1:AV1000"; // ✅ Must include range
       const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
