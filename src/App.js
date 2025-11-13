@@ -110,8 +110,6 @@ export default function App() {
       if (rows[27] != "#N/A" && rows[27][0] != "") { setCurrentSold({ image: rows[27][10], points: rows[27][1] || "", name: rows[27][3] || "", team: rows[27][2] || "", age: rows[27][4] || "", category: rows[27][5] || "", city: rows[27][6] || "", role: rows[27][7] || "", bat_style: rows[27][8] || "", ball_style: rows[27][8] || "", }) }
       if (rows[28] != "#N/A" && rows[28][0] != "") { setLastSold({ name: rows[28][3], team: rows[28][2], points: rows[28][1], }) }
 
-      console.log("here", rows[27])
-      console.log("✅ Fresh data fetched", owners);
       // console.log("sold", currentSold)
     } catch (err) {
       console.error("❌ Error:", err);
@@ -169,7 +167,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -178,7 +176,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[0]?.Rounds[0]?.Total?.Balance}</p>
+                        <p>{data[0]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -199,7 +197,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -208,7 +206,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[0]?.Rounds[1]?.Total?.Balance}</p>
+                        <p>{data[0]?.Rounds[1]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -251,7 +249,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -260,7 +258,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[1]?.Rounds[0]?.Total?.Balance}</p>
+                        <p>{data[1]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -281,7 +279,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -290,7 +288,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[1]?.Rounds[1]?.Total?.Balance}</p>
+                        <p>{data[1]?.Rounds[1]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -333,7 +331,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -342,7 +340,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[2]?.Rounds[0]?.Total?.Balance}</p>
+                        <p>{data[2]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -363,7 +361,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -372,7 +370,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[2]?.Rounds[1]?.Total?.Balance}</p>
+                        <p>{data[2]?.Rounds[1]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -415,7 +413,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -424,7 +422,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[3]?.Rounds[0]?.Total?.Balance}</p>
+                        <p>{data[3]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -445,7 +443,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -454,7 +452,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[3]?.Rounds[1]?.Total?.Balance}</p>
+                        <p>{data[3]?.Rounds[1]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -634,7 +632,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -643,7 +641,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[4]?.Rounds[0]?.Total?.Balance}</p>
+                        <p>{data[4]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -664,7 +662,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -673,7 +671,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[4]?.Rounds[1]?.Total?.Balance}</p>
+                        <p>{data[4]?.Rounds[1]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -716,7 +714,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -725,7 +723,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[5]?.Rounds[0]?.Total?.Balance}</p>
+                        <p>{data[5]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -746,7 +744,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -755,7 +753,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[5]?.Rounds[1]?.Total?.Balance}</p>
+                        <p>{data[5]?.Rounds[1]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -798,7 +796,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -807,7 +805,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[6]?.Rounds[0]?.Total?.Balance}</p>
+                        <p>{data[6]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -828,7 +826,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -837,7 +835,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[6]?.Rounds[1]?.Total?.Balance}</p>
+                        <p>{data[6]?.Rounds[1]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -880,7 +878,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -889,7 +887,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[7]?.Rounds[0]?.Total?.Balance}</p>
+                        <p>{data[7]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
@@ -910,7 +908,7 @@ export default function App() {
                           )}
                         </div>
                         <div className="clstbcol clstbcol2">
-                          <p>{item?.points}</p>
+                          <p>{item?.Points}</p>
                         </div>
                       </div>))}
                     </div>
@@ -919,7 +917,7 @@ export default function App() {
                         <p>Total</p>
                       </div>
                       <div className="clstbcol clstbcol2">
-                        <p>{data[7]?.Rounds[1]?.Total?.Balance}</p>
+                        <p>{data[7]?.Rounds[1]?.Total?.Points}</p>
                       </div>
                     </div>
                   </div>
