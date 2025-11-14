@@ -126,11 +126,6 @@ export default function App() {
     }
   }, [isPlay])
 
-  useEffect(() => {
-    setShowRound2(false)
-  }, [showRound1])
-
-  console.log("here", currentSold?.image)
 
   return (
 
@@ -168,8 +163,8 @@ export default function App() {
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  {showRound1 && (<div className="clsroundcol">
-                    <div className="clsaucroundcol">
+                  <div className="clsroundcol">
+                    {showRound1 && (<div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                       </div>
@@ -188,7 +183,7 @@ export default function App() {
                           <p>{item?.Points}</p>
                         </div>
                       </div>))}
-                    </div>
+                    </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -205,7 +200,7 @@ export default function App() {
                         <p>{data[0]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -266,8 +261,9 @@ export default function App() {
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  {showRound1 && (<div className="clsroundcol">
-                    <div className="clsaucroundcol">
+                  <div className="clsroundcol">
+                    {showRound1 && (
+                      <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                       </div>
@@ -286,7 +282,7 @@ export default function App() {
                           <p>{item?.Points}</p>
                         </div>
                       </div>))}
-                    </div>
+                    </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -303,7 +299,7 @@ export default function App() {
                         <p>{data[1]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -364,8 +360,8 @@ export default function App() {
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  {showRound1 && (<div className="clsroundcol">
-                    <div className="clsaucroundcol">
+                 <div className="clsroundcol">
+                    {showRound1 && (<div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                       </div>
@@ -384,7 +380,7 @@ export default function App() {
                           <p>{item?.Points}</p>
                         </div>
                       </div>))}
-                    </div>
+                    </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -401,7 +397,7 @@ export default function App() {
                         <p>{data[2]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -462,8 +458,8 @@ export default function App() {
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  {showRound1 && (<div className="clsroundcol">
-                    <div className="clsaucroundcol">
+                  <div className="clsroundcol">
+                    {showRound1 && (<div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                       </div>
@@ -482,7 +478,7 @@ export default function App() {
                           <p>{item?.Points}</p>
                         </div>
                       </div>))}
-                    </div>
+                    </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -499,7 +495,7 @@ export default function App() {
                         <p>{data[3]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -699,8 +695,8 @@ export default function App() {
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  {showRound1 && (<div className="clsroundcol">
-                    <div className="clsaucroundcol">
+                  <div className="clsroundcol">
+                    {showRound1 && (<div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                       </div>
@@ -719,7 +715,7 @@ export default function App() {
                           <p>{item?.Points}</p>
                         </div>
                       </div>))}
-                    </div>
+                    </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -736,7 +732,7 @@ export default function App() {
                         <p>{data[4]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -797,8 +793,8 @@ export default function App() {
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  {showRound1 && (<div className="clsroundcol">
-                    <div className="clsaucroundcol">
+                  <div className="clsroundcol">
+                    {showRound1 && (<div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                       </div>
@@ -817,7 +813,7 @@ export default function App() {
                           <p>{item?.Points}</p>
                         </div>
                       </div>))}
-                    </div>
+                    </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -834,7 +830,7 @@ export default function App() {
                         <p>{data[5]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -895,8 +891,8 @@ export default function App() {
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  {showRound1 && (<div className="clsroundcol">
-                    <div className="clsaucroundcol">
+                  <div className="clsroundcol">
+                    {showRound1 && (<div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                       </div>
@@ -915,7 +911,7 @@ export default function App() {
                           <p>{item?.Points}</p>
                         </div>
                       </div>))}
-                    </div>
+                    </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -932,7 +928,7 @@ export default function App() {
                         <p>{data[6]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -993,8 +989,8 @@ export default function App() {
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  {showRound1 && (<div className="clsroundcol">
-                    <div className="clsaucroundcol">
+                  <div className="clsroundcol">
+                    {showRound1 && (<div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                       </div>
@@ -1013,7 +1009,7 @@ export default function App() {
                           <p>{item?.Points}</p>
                         </div>
                       </div>))}
-                    </div>
+                    </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -1030,7 +1026,7 @@ export default function App() {
                         <p>{data[7]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
