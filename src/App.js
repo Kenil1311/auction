@@ -499,20 +499,20 @@ export default function App() {
           <div className="col-12 clsmaincol clsmaincol2">
             <div className="clspoweredby text-center">
               <p>Design & Developed by</p>
-              <div className="clssoftlogo"><img src="/softnoesis-logo.svg" alt="" /></div>
+              <div className="clssoftlogo"><img src="/softnoesis-logo.svg" alt="" height={30}/></div>
             </div>
             <div className="clsscl text-center">
-              <img src="/scl.svg" alt="" height={70} />
+              <img src="/scl.svg" alt="" height={120}/>
             </div>
 
-            {(currentSold && isPlay == false) && (<div className="w-100 clssoldplayer text-center">
-              <div className="clsplayerphoto">
-                <img src={currentSold?.image ? `/Images/${IMAGES?.find(image => image.url == currentSold?.image)?.image}` : "https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"} alt="" />
+            {(currentSold && isPlay == false) && (<div className="w-100 clssoldplayer text-center" style={{marginTop: -10}}>
+              <div className="clsplayerphoto" style={{width: 150, height: 150}}>
+                <img src={currentSold?.image ? `/Images/${IMAGES?.find(image => image.url == currentSold?.image)?.image}` : "https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"} alt=""/>
               </div>
               <div className="clssoldplayerinfo">
-                <div className="clsplydetails">
+                <div className="clsplydetails" style={{marginTop: -15}}>
                   <h3>{currentSold?.name}</h3>
-                  <div className="clssoltpointinfo">
+                  <div className="clssoltpointinfo" style={{marginTop: -10}}>
                     <div className="clssoltpoint">Sold Out To</div>
                     <h4>{currentSold?.team}</h4>
                     <p><span>{currentSold?.points}</span> Points</p>
@@ -551,7 +551,7 @@ export default function App() {
             </div>)}
 
             {(!currentSold || isPlay) && (<div className="w-100 clssoldplayer clsauctionlive text-center">
-              <div className="clsplayerphoto flipanim1">
+              <div className="clsplayerphoto flipanim1" style={{width: 150, height: 150}} >
                 <img src="/default-icon.svg" alt="" />
               </div>
               <div className="clssoldplayerinfo">
