@@ -71,7 +71,7 @@ a, a:hover, button {transition:all 0.3s ease 0s; -moz-transition:all 0.3s ease 0
 .clsauctionlive .clsplayalldetails ul li p b:before {bottom: 0em;}
 
 .clsoptsbtn {gap:0 1.2em; margin-top: 2em;}
-.clsoptsbtn a {width: 4.2em; height: 4.2em; background-color: #FFFFFF; background-repeat: no-repeat; background-position: 50% 50%; border-radius: 100%; -moz-border-radius: 100%; -webkit-border-radius: 100%;}
+.clsoptsbtn a {width: 3.4em; height: 3.4em; background-color: #FFFFFF; background-repeat: no-repeat; background-position: 50% 50%; border-radius: 100%; -moz-border-radius: 100%; -webkit-border-radius: 100%;}
 .clsoptsbtn .clsplay {background-image: url(../public/play-icon.svg);}
 .clsoptsbtn .clspause {background-image: url(../public/pause-icon.svg);}
 .clsoptsbtn .clsreload {background-image: url(../public/reload-icon.svg);}

@@ -9,9 +9,10 @@ export default function App() {
 
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const [isPlay, setIsPlay] = useState(false);
+  const [isPlay, setIsPlay] = useState(true);
   const [currentSold, setCurrentSold] = useState(null);
   const [lastSold, setLastSold] = useState(null);
+  const [showRound1, setShowRound1] = useState(true);
   const [showRound2, setShowRound2] = useState(false);
 
   const csvUrl = `https://docs.google.com/spreadsheets/d/e/2PACX-1vS7fgCmHlAcPALtGEbrIjpjNPkcF8wLJlf4oeFIK2WKXEBNk6gNJFIjAWvf95Pdjw/pub?output=csv`;
@@ -125,6 +126,12 @@ export default function App() {
     }
   }, [isPlay])
 
+  useEffect(() => {
+    setShowRound2(false)
+  }, [showRound1])
+
+  console.log("here", currentSold?.image)
+
   return (
 
 
@@ -147,13 +154,21 @@ export default function App() {
                       <p>Points</p>
                     </div>
                   </div>
-                  <div className="clscaptainname d-flex">
+                  <div className="clscaptainname d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound1(prev => !prev)}>
+                    {/* ICON */}
+                    <span style={{
+                      fontSize: "18px",
+                      marginLeft: "3px",
+                      fontWeight: "bold"
+                    }}>
+                      {showRound1 ? "−" : "+"}
+                    </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
                       <p><b>{data[0]?.FirstPlayer}</b><span>(C)</span></p>
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  <div className="clsroundcol">
+                  {showRound1 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -167,7 +182,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -190,7 +205,7 @@ export default function App() {
                         <p>{data[0]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>
+                  </div>)}
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -205,7 +220,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -237,13 +252,21 @@ export default function App() {
                       <p>Points</p>
                     </div>
                   </div>
-                  <div className="clscaptainname d-flex">
+                  <div className="clscaptainname d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound1(prev => !prev)}>
+                    {/* ICON */}
+                    <span style={{
+                      fontSize: "18px",
+                      marginLeft: "3px",
+                      fontWeight: "bold"
+                    }}>
+                      {showRound1 ? "−" : "+"}
+                    </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
                       <p><b>{data[1]?.FirstPlayer}</b><span>(C)</span></p>
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  <div className="clsroundcol">
+                  {showRound1 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -257,7 +280,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -280,7 +303,7 @@ export default function App() {
                         <p>{data[1]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>
+                  </div>)}
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -289,13 +312,13 @@ export default function App() {
                       {data[1]?.Rounds[1]?.Players?.map(item => (<div className="clsplayerlists d-flex">
                         <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                           <p>{item?.Player}</p>
-                         {item?.Role?.trim() == "Bowler" ? (
+                          {item?.Role?.trim() == "Bowler" ? (
                             <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "Batsmen" ? (
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -327,13 +350,21 @@ export default function App() {
                       <p>Points</p>
                     </div>
                   </div>
-                  <div className="clscaptainname d-flex">
+                  <div className="clscaptainname d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound1(prev => !prev)}>
+                    {/* ICON */}
+                    <span style={{
+                      fontSize: "18px",
+                      marginLeft: "3px",
+                      fontWeight: "bold"
+                    }}>
+                      {showRound1 ? "−" : "+"}
+                    </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
                       <p><b>{data[2]?.FirstPlayer}</b><span>(C)</span></p>
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  <div className="clsroundcol">
+                  {showRound1 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -347,7 +378,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -370,7 +401,7 @@ export default function App() {
                         <p>{data[2]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>
+                  </div>)}
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -385,7 +416,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -417,13 +448,21 @@ export default function App() {
                       <p>Points</p>
                     </div>
                   </div>
-                  <div className="clscaptainname d-flex">
+                  <div className="clscaptainname d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound1(prev => !prev)}>
+                    {/* ICON */}
+                    <span style={{
+                      fontSize: "18px",
+                      marginLeft: "3px",
+                      fontWeight: "bold"
+                    }}>
+                      {showRound1 ? "−" : "+"}
+                    </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
                       <p><b>{data[3]?.FirstPlayer}</b><span>(C)</span></p>
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  <div className="clsroundcol">
+                  {showRound1 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -437,7 +476,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -460,7 +499,7 @@ export default function App() {
                         <p>{data[3]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>
+                  </div>)}
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -475,7 +514,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -499,20 +538,20 @@ export default function App() {
           <div className="col-12 clsmaincol clsmaincol2">
             <div className="clspoweredby text-center">
               <p>Design & Developed by</p>
-              <div className="clssoftlogo"><img src="/softnoesis-logo.svg" alt="" height={30}/></div>
+              <div className="clssoftlogo"><img src="/softnoesis-logo.svg" alt="" height={30} /></div>
             </div>
             <div className="clsscl text-center">
-              <img src="/scl.svg" alt="" height={120}/>
+              <img src="/scl.svg" alt="" height={120} />
             </div>
 
-            {(currentSold && isPlay == false) && (<div className="w-100 clssoldplayer text-center" style={{marginTop: -10}}>
-              <div className="clsplayerphoto" style={{width: 150, height: 150}}>
-                <img src={currentSold?.image ? `/Images/${IMAGES?.find(image => image.url == currentSold?.image)?.image}` : "https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"} alt=""/>
+            {(currentSold && isPlay == false) && (<div className="w-100 clssoldplayer text-center" style={{ marginTop: -10 }}>
+              <div className="clsplayerphoto" style={{ width: 150, height: 150 }}>
+                <img src={currentSold?.image ? `/Images/${IMAGES?.find(image => image.url == currentSold?.image)?.image}` : "https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg"} alt="" />
               </div>
               <div className="clssoldplayerinfo">
-                <div className="clsplydetails" style={{marginTop: -15}}>
+                <div className="clsplydetails" style={{ marginTop: -15 }}>
                   <h3>{currentSold?.name}</h3>
-                  <div className="clssoltpointinfo" style={{marginTop: -10}}>
+                  <div className="clssoltpointinfo" style={{ marginTop: -10 }}>
                     <div className="clssoltpoint">Sold Out To</div>
                     <h4>{currentSold?.team}</h4>
                     <p><span>{currentSold?.points}</span> Points</p>
@@ -551,7 +590,7 @@ export default function App() {
             </div>)}
 
             {(!currentSold || isPlay) && (<div className="w-100 clssoldplayer clsauctionlive text-center">
-              <div className="clsplayerphoto flipanim1" style={{width: 150, height: 150}} >
+              <div className="clsplayerphoto flipanim1" style={{ width: 150, height: 150 }} >
                 <img src="/default-icon.svg" alt="" />
               </div>
               <div className="clssoldplayerinfo">
@@ -614,7 +653,7 @@ export default function App() {
                 onClick={() => {
                   fetchSheetData()
                 }}></a>
-              <a className="clsback"></a>
+              {/* <a className="clsback"></a> */}
             </div>
 
             {lastSold && (<div className="clslastsoldout">
@@ -646,13 +685,21 @@ export default function App() {
                       <p>Points</p>
                     </div>
                   </div>
-                  <div className="clscaptainname d-flex">
+                  <div className="clscaptainname d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound1(prev => !prev)}>
+                    {/* ICON */}
+                    <span style={{
+                      fontSize: "18px",
+                      marginLeft: "3px",
+                      fontWeight: "bold"
+                    }}>
+                      {showRound1 ? "−" : "+"}
+                    </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
                       <p><b>{data[4]?.FirstPlayer}</b><span>(C)</span></p>
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  <div className="clsroundcol">
+                  {showRound1 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -666,7 +713,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -689,7 +736,7 @@ export default function App() {
                         <p>{data[4]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>
+                  </div>)}
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -704,7 +751,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -736,13 +783,21 @@ export default function App() {
                       <p>Points</p>
                     </div>
                   </div>
-                  <div className="clscaptainname d-flex">
+                  <div className="clscaptainname d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound1(prev => !prev)}>
+                    {/* ICON */}
+                    <span style={{
+                      fontSize: "18px",
+                      marginLeft: "3px",
+                      fontWeight: "bold"
+                    }}>
+                      {showRound1 ? "−" : "+"}
+                    </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
                       <p><b>{data[5]?.FirstPlayer}</b><span>(C)</span></p>
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  <div className="clsroundcol">
+                  {showRound1 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -750,13 +805,13 @@ export default function App() {
                       {data[5]?.Rounds[0]?.Players?.map(item => (<div className="clsplayerlists d-flex">
                         <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                           <p>{item?.Player}</p>
-                         {item?.Role?.trim() == "Bowler" ? (
+                          {item?.Role?.trim() == "Bowler" ? (
                             <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "Batsmen" ? (
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -779,7 +834,7 @@ export default function App() {
                         <p>{data[5]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>
+                  </div>)}
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -788,13 +843,13 @@ export default function App() {
                       {data[5]?.Rounds[1]?.Players?.map(item => (<div className="clsplayerlists d-flex">
                         <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                           <p>{item?.Player}</p>
-                         {item?.Role?.trim() == "Bowler" ? (
+                          {item?.Role?.trim() == "Bowler" ? (
                             <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "Batsmen" ? (
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -826,13 +881,21 @@ export default function App() {
                       <p>Points</p>
                     </div>
                   </div>
-                  <div className="clscaptainname d-flex">
+                  <div className="clscaptainname d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound1(prev => !prev)}>
+                    {/* ICON */}
+                    <span style={{
+                      fontSize: "18px",
+                      marginLeft: "3px",
+                      fontWeight: "bold"
+                    }}>
+                      {showRound1 ? "−" : "+"}
+                    </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
                       <p><b>{data[6]?.FirstPlayer}</b><span>(C)</span></p>
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  <div className="clsroundcol">
+                  {showRound1 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -846,7 +909,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -869,7 +932,7 @@ export default function App() {
                         <p>{data[6]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>
+                  </div>)}
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -884,7 +947,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -916,13 +979,21 @@ export default function App() {
                       <p>Points</p>
                     </div>
                   </div>
-                  <div className="clscaptainname d-flex">
+                  <div className="clscaptainname d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound1(prev => !prev)}>
+                    {/* ICON */}
+                    <span style={{
+                      fontSize: "18px",
+                      marginLeft: "3px",
+                      fontWeight: "bold"
+                    }}>
+                      {showRound1 ? "−" : "+"}
+                    </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
                       <p><b>{data[7]?.FirstPlayer}</b><span>(C)</span></p>
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                  <div className="clsroundcol">
+                  {showRound1 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -936,7 +1007,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>
@@ -959,7 +1030,7 @@ export default function App() {
                         <p>{data[7]?.Rounds[0]?.Total?.Points}</p>
                       </div>
                     </div>
-                  </div>
+                  </div>)}
                   {showRound2 && (<div className="clsroundcol">
                     <div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor2">
@@ -974,7 +1045,7 @@ export default function App() {
                             <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
                           ) : item?.Role?.trim() == "All rounder" ? (
                             <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{height: 16}}></div>}
+                          ) : <div style={{ height: 16 }}></div>}
                         </div>
                         <div className="clstbcol clstbcol2">
                           <p>{item?.Points}</p>

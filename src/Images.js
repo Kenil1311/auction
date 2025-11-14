@@ -63,7 +63,7 @@ export const IMAGES = [
   {"sr_no": "P62", "url": "https://drive.google.com/open?id=1RHTK_E_oJ36o4HfI3MPXaLypqb6f5ZDO", "image": "P62.JPG"},
   {"sr_no": "P63", "url": "https://drive.google.com/open?id=1OAoeeizbJtoiDu0eM-vvjqYbtqCaEfnr", "image": "P63.jpg"},
   {"sr_no": "P64", "url": "https://drive.google.com/open?id=1EkR6OMnYdePuW0owYZyqYvx-GkThHRMJ", "image": "P64.jpg"},
-  {"sr_no": "P65", "url": "https://drive.google.com/open?id=1Jky9UObEevfDJFqCUNbdd9eYS226n5b-", "image": "P65.jpg"},
+  {"sr_no": "P65", "url": "https://drive.google.com/file/d/140dtg7_dV-Q7wJgxvS3HhPXMkiL171fK/", "image": "P65.jpg"},
   {"sr_no": "P66", "url": "https://drive.google.com/open?id=1NEGaoT61rGZrYZJCw2Myr1Q02ThRyJQg", "image": "P66.jpg"},
   {"sr_no": "P67", "url": "https://drive.google.com/open?id=1gCIxmpJm_rEm6MC3X6nFGWKHiY8J2mun", "image": "P67.jpg"},
   {"sr_no": "P68", "url": null, "image": null},
