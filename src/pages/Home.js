@@ -263,7 +263,7 @@ export default function Home() {
                     }}>
                       {showRound1 ? "−" : "+"}
                     </span>
-                    <div className="clstbcol clstbcol1 flex-grow-1">
+                    <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                       <p><b>{data[1]?.Captain}</b><span>(C)</span></p>
                               {data[1]?.Captain_Role?.trim() == "Bowler" ? (
                         <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
@@ -369,7 +369,7 @@ export default function Home() {
                     }}>
                       {showRound1 ? "−" : "+"}
                     </span>
-                    <div className="clstbcol clstbcol1 flex-grow-1">
+                    <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                       <p><b>{data[2]?.Captain}</b><span>(C)</span></p>
                               {data[2]?.Captain_Role?.trim() == "Bowler" ? (
                         <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
@@ -474,7 +474,7 @@ export default function Home() {
                     }}>
                       {showRound1 ? "−" : "+"}
                     </span>
-                    <div className="clstbcol clstbcol1 flex-grow-1">
+                    <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                       <p><b>{data[3]?.Captain}</b><span>(C)</span></p>
                               {data[3]?.Captain_Role?.trim() == "Bowler" ? (
                         <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
@@ -718,7 +718,7 @@ export default function Home() {
                     }}>
                       {showRound1 ? "−" : "+"}
                     </span>
-                    <div className="clstbcol clstbcol1 flex-grow-1">
+                    <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                       <p><b>{data[4]?.Captain}</b><span>(C)</span></p>
                               {data[4]?.Captain_Role?.trim() == "Bowler" ? (
                         <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
@@ -823,7 +823,7 @@ export default function Home() {
                     }}>
                       {showRound1 ? "−" : "+"}
                     </span>
-                    <div className="clstbcol clstbcol1 flex-grow-1">
+                    <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                       <p><b>{data[5]?.Captain}</b><span>(C)</span></p>
                               {data[5]?.Captain_Role?.trim() == "Bowler" ? (
                         <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
@@ -928,7 +928,7 @@ export default function Home() {
                     }}>
                       {showRound1 ? "−" : "+"}
                     </span>
-                    <div className="clstbcol clstbcol1 flex-grow-1">
+                    <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                       <p><b>{data[6]?.Captain}</b><span>(C)</span></p>
                               {data[6]?.Captain_Role?.trim() == "Bowler" ? (
                         <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
@@ -1033,7 +1033,7 @@ export default function Home() {
                     }}>
                       {showRound1 ? "−" : "+"}
                     </span>
-                    <div className="clstbcol clstbcol1 flex-grow-1">
+                    <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                       <p><b>{data[7]?.Captain}</b><span>(C)</span></p>
                               {data[7]?.Captain_Role?.trim() == "Bowler" ? (
                         <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>

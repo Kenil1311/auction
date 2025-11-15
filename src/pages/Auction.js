@@ -120,7 +120,6 @@ export default function Auction() {
         }
     };
 
-    console.log(data)
     return (
 
 
@@ -144,7 +143,7 @@ export default function Auction() {
                                         </div>
                                     </div>
                                     <div className="clscaptainname d-flex">
-                                        <div className="clstbcol clstbcol1 flex-grow-1">
+                                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                                             <p><b>{data[0]?.Captain}</b><span>(C)</span></p>
                                             {data[0]?.Captain_Role?.trim() == "Bowler" ? (
                                                 <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
@@ -233,15 +232,15 @@ export default function Auction() {
                                         </div>
                                     </div>
                                     <div className="clscaptainname d-flex">
-                                        <div className="clstbcol clstbcol1 flex-grow-1">
+                                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                                             <p><b>{data[1]?.Captain}</b><span>(C)</span></p>
-                                                    {data[1]?.Captain_Role?.trim() == "Bowler" ? (
-                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
-                      ) : data[1]?.Captain_Role?.trim() == "Batsmen" ? (
-                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
-                      ) : data[1]?.Captain_Role?.trim() == "All rounder" ? (
-                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                      ) : <div style={{ height: 16 }}></div>}
+                                            {data[1]?.Captain_Role?.trim() == "Bowler" ? (
+                                                <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                                            ) : data[1]?.Captain_Role?.trim() == "Batsmen" ? (
+                                                <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                                            ) : data[1]?.Captain_Role?.trim() == "All rounder" ? (
+                                                <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                                            ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -322,15 +321,15 @@ export default function Auction() {
                                         </div>
                                     </div>
                                     <div className="clscaptainname d-flex">
-                                        <div className="clstbcol clstbcol1 flex-grow-1">
+                                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                                             <p><b>{data[2]?.Captain}</b><span>(C)</span></p>
-                                                    {data[2]?.Captain_Role?.trim() == "Bowler" ? (
-                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
-                      ) : data[2]?.Captain_Role?.trim() == "Batsmen" ? (
-                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
-                      ) : data[2]?.Captain_Role?.trim() == "All rounder" ? (
-                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                      ) : <div style={{ height: 16 }}></div>}
+                                            {data[2]?.Captain_Role?.trim() == "Bowler" ? (
+                                                <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                                            ) : data[2]?.Captain_Role?.trim() == "Batsmen" ? (
+                                                <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                                            ) : data[2]?.Captain_Role?.trim() == "All rounder" ? (
+                                                <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                                            ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -411,15 +410,15 @@ export default function Auction() {
                                         </div>
                                     </div>
                                     <div className="clscaptainname d-flex">
-                                        <div className="clstbcol clstbcol1 flex-grow-1">
+                                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                                             <p><b>{data[3]?.Captain}</b><span>(C)</span></p>
-                                                    {data[3]?.Captain_Role?.trim() == "Bowler" ? (
-                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
-                      ) : data[3]?.Captain_Role?.trim() == "Batsmen" ? (
-                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
-                      ) : data[3]?.Captain_Role?.trim() == "All rounder" ? (
-                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                      ) : <div style={{ height: 16 }}></div>}
+                                            {data[3]?.Captain_Role?.trim() == "Bowler" ? (
+                                                <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                                            ) : data[3]?.Captain_Role?.trim() == "Batsmen" ? (
+                                                <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                                            ) : data[3]?.Captain_Role?.trim() == "All rounder" ? (
+                                                <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                                            ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -496,6 +495,11 @@ export default function Auction() {
                         <div className="clsscl text-center">
                             <img src="/scl.svg" alt="" height={120} />
                         </div>
+
+                        <div className="clspoweredby text-center mb-3">
+                            <p className='fs-7'>Lead By MR. Nkhil Madrasi</p>
+                        </div>
+
                         {lastSold && (<div className="clslastsoldout">
                             <div className="clsplydetails">
                                 <h5>Last Sold</h5>
@@ -525,15 +529,15 @@ export default function Auction() {
                                         </div>
                                     </div>
                                     <div className="clscaptainname d-flex">
-                                        <div className="clstbcol clstbcol1 flex-grow-1">
+                                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                                             <p><b>{data[4]?.Captain}</b><span>(C)</span></p>
-                                                    {data[4]?.Captain_Role?.trim() == "Bowler" ? (
-                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
-                      ) : data[4]?.Captain_Role?.trim() == "Batsmen" ? (
-                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
-                      ) : data[4]?.Captain_Role?.trim() == "All rounder" ? (
-                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                      ) : <div style={{ height: 16 }}></div>}
+                                            {data[4]?.Captain_Role?.trim() == "Bowler" ? (
+                                                <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                                            ) : data[4]?.Captain_Role?.trim() == "Batsmen" ? (
+                                                <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                                            ) : data[4]?.Captain_Role?.trim() == "All rounder" ? (
+                                                <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                                            ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -614,15 +618,15 @@ export default function Auction() {
                                         </div>
                                     </div>
                                     <div className="clscaptainname d-flex">
-                                        <div className="clstbcol clstbcol1 flex-grow-1">
+                                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                                             <p><b>{data[5]?.Captain}</b><span>(C)</span></p>
-                                                    {data[5]?.Captain_Role?.trim() == "Bowler" ? (
-                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
-                      ) : data[5]?.Captain_Role?.trim() == "Batsmen" ? (
-                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
-                      ) : data[5]?.Captain_Role?.trim() == "All rounder" ? (
-                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                      ) : <div style={{ height: 16 }}></div>}
+                                            {data[5]?.Captain_Role?.trim() == "Bowler" ? (
+                                                <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                                            ) : data[5]?.Captain_Role?.trim() == "Batsmen" ? (
+                                                <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                                            ) : data[5]?.Captain_Role?.trim() == "All rounder" ? (
+                                                <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                                            ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -703,15 +707,15 @@ export default function Auction() {
                                         </div>
                                     </div>
                                     <div className="clscaptainname d-flex">
-                                        <div className="clstbcol clstbcol1 flex-grow-1">
+                                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                                             <p><b>{data[6]?.Captain}</b><span>(C)</span></p>
-                                                    {data[6]?.Captain_Role?.trim() == "Bowler" ? (
-                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
-                      ) : data[6]?.Captain_Role?.trim() == "Batsmen" ? (
-                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
-                      ) : data[6]?.Captain_Role?.trim() == "All rounder" ? (
-                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                      ) : <div style={{ height: 16 }}></div>}
+                                            {data[6]?.Captain_Role?.trim() == "Bowler" ? (
+                                                <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                                            ) : data[6]?.Captain_Role?.trim() == "Batsmen" ? (
+                                                <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                                            ) : data[6]?.Captain_Role?.trim() == "All rounder" ? (
+                                                <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                                            ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -792,15 +796,15 @@ export default function Auction() {
                                         </div>
                                     </div>
                                     <div className="clscaptainname d-flex">
-                                        <div className="clstbcol clstbcol1 flex-grow-1">
+                                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
                                             <p><b>{data[7]?.Captain}</b><span>(C)</span></p>
-                                                    {data[7]?.Captain_Role?.trim() == "Bowler" ? (
-                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
-                      ) : data[7]?.Captain_Role?.trim() == "Batsmen" ? (
-                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
-                      ) : data[7]?.Captain_Role?.trim() == "All rounder" ? (
-                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                      ) : <div style={{ height: 16 }}></div>}
+                                            {data[7]?.Captain_Role?.trim() == "Bowler" ? (
+                                                <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                                            ) : data[7]?.Captain_Role?.trim() == "Batsmen" ? (
+                                                <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                                            ) : data[7]?.Captain_Role?.trim() == "All rounder" ? (
+                                                <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                                            ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
