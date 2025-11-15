@@ -53,7 +53,8 @@ export default function Home() {
         const currentOwner = {
           Owner: ownerName,
           Team: teamName,
-          FirstPlayer: null,
+          Captain: null,
+          Captain_Role: null,
           Rounds: []
         };
 
@@ -70,8 +71,9 @@ export default function Home() {
             continue;
           }
 
-          if (!currentRound && row[0] && !cellValue.includes("owner") && !cellValue.includes("team")) {
-            currentOwner.FirstPlayer = row[1] == "#N/A" ? "" : row[1]?.split("|")[0];
+          if (!currentRound && !cellValue.includes("owner") && !cellValue.includes("team")) {
+            currentOwner.Captain = row[1] == "#N/A" ? "" : row[1]?.split("|")[0];
+            currentOwner.Captain_Role = row[1] == "#N/A" ? "" : row[1]?.split("|")[1];
             continue;
           }
 
@@ -157,7 +159,14 @@ export default function Home() {
                       {showRound1 ? "−" : "+"}
                     </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
-                      <p><b>{data[0]?.FirstPlayer}</b><span>(C)</span></p>
+                      <p><b>{data[0]?.Captain}</b><span>(C)</span></p>
+                      {data[0]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[0]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[0]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
@@ -255,32 +264,39 @@ export default function Home() {
                       {showRound1 ? "−" : "+"}
                     </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
-                      <p><b>{data[1]?.FirstPlayer}</b><span>(C)</span></p>
+                      <p><b>{data[1]?.Captain}</b><span>(C)</span></p>
+                              {data[1]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[1]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[1]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
                   <div className="clsroundcol">
                     {showRound1 && (
                       <div className="clsaucroundcol">
-                      <div className="clsroundlabel bgcolor1">
-                        <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
-                      </div>
-                      {data[1]?.Rounds[0]?.Players?.map(item => (<div className="clsplayerlists d-flex">
-                        <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
-                          <p>{item?.Player}</p>
-                          {item?.Role?.trim() == "Bowler" ? (
-                            <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
-                          ) : item?.Role?.trim() == "Batsmen" ? (
-                            <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
-                          ) : item?.Role?.trim() == "All rounder" ? (
-                            <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
-                          ) : <div style={{ height: 16 }}></div>}
+                        <div className="clsroundlabel bgcolor1">
+                          <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
                         </div>
-                        <div className="clstbcol clstbcol2">
-                          <p>{item?.Points}</p>
-                        </div>
-                      </div>))}
-                    </div>)}
+                        {data[1]?.Rounds[0]?.Players?.map(item => (<div className="clsplayerlists d-flex">
+                          <div className="clstbcol clstbcol1 d-flex justify-content-between flex-grow-1">
+                            <p>{item?.Player}</p>
+                            {item?.Role?.trim() == "Bowler" ? (
+                              <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                            ) : item?.Role?.trim() == "Batsmen" ? (
+                              <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                            ) : item?.Role?.trim() == "All rounder" ? (
+                              <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                            ) : <div style={{ height: 16 }}></div>}
+                          </div>
+                          <div className="clstbcol clstbcol2">
+                            <p>{item?.Points}</p>
+                          </div>
+                        </div>))}
+                      </div>)}
                     <div className="clstotalrow d-flex" style={{ cursor: "pointer" }} onClick={() => setShowRound2(prev => !prev)}>
                       {/* ICON */}
                       <span style={{
@@ -354,11 +370,18 @@ export default function Home() {
                       {showRound1 ? "−" : "+"}
                     </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
-                      <p><b>{data[2]?.FirstPlayer}</b><span>(C)</span></p>
+                      <p><b>{data[2]?.Captain}</b><span>(C)</span></p>
+                              {data[2]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[2]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[2]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
-                 <div className="clsroundcol">
+                  <div className="clsroundcol">
                     {showRound1 && (<div className="clsaucroundcol">
                       <div className="clsroundlabel bgcolor1">
                         <p>R&nbsp;O&nbsp;U&nbsp;N&nbsp;D&nbsp;<span>1</span></p>
@@ -452,7 +475,14 @@ export default function Home() {
                       {showRound1 ? "−" : "+"}
                     </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
-                      <p><b>{data[3]?.FirstPlayer}</b><span>(C)</span></p>
+                      <p><b>{data[3]?.Captain}</b><span>(C)</span></p>
+                              {data[3]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[3]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[3]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
@@ -689,7 +719,14 @@ export default function Home() {
                       {showRound1 ? "−" : "+"}
                     </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
-                      <p><b>{data[4]?.FirstPlayer}</b><span>(C)</span></p>
+                      <p><b>{data[4]?.Captain}</b><span>(C)</span></p>
+                              {data[4]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[4]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[4]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
@@ -787,7 +824,14 @@ export default function Home() {
                       {showRound1 ? "−" : "+"}
                     </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
-                      <p><b>{data[5]?.FirstPlayer}</b><span>(C)</span></p>
+                      <p><b>{data[5]?.Captain}</b><span>(C)</span></p>
+                              {data[5]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[5]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[5]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
@@ -885,7 +929,14 @@ export default function Home() {
                       {showRound1 ? "−" : "+"}
                     </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
-                      <p><b>{data[6]?.FirstPlayer}</b><span>(C)</span></p>
+                      <p><b>{data[6]?.Captain}</b><span>(C)</span></p>
+                              {data[6]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[6]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[6]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>
@@ -983,7 +1034,14 @@ export default function Home() {
                       {showRound1 ? "−" : "+"}
                     </span>
                     <div className="clstbcol clstbcol1 flex-grow-1">
-                      <p><b>{data[7]?.FirstPlayer}</b><span>(C)</span></p>
+                      <p><b>{data[7]?.Captain}</b><span>(C)</span></p>
+                              {data[7]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[7]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[7]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                     </div>
                     <div className="clstbcol clstbcol2">&nbsp;</div>
                   </div>

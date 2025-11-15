@@ -5,6 +5,8 @@ import '../App.css';
 export default function Auction() {
 
     const [data, setData] = useState([]);
+    const [lastSold, setLastSold] = useState(null);
+
 
     useEffect(() => {
         // First call immediately
@@ -53,7 +55,8 @@ export default function Auction() {
                 const currentOwner = {
                     Owner: ownerName,
                     Team: teamName,
-                    FirstPlayer: null,
+                    Captain: null,
+                    Captain_Role: null,
                     Rounds: []
                 };
 
@@ -71,7 +74,8 @@ export default function Auction() {
                     }
 
                     if (!currentRound && row[0] && !cellValue.includes("owner") && !cellValue.includes("team")) {
-                        currentOwner.FirstPlayer = row[1] == "#N/A" ? "" : row[1]?.split("|")[0];
+                        currentOwner.Captain = row[1] == "#N/A" ? "" : row[1]?.split("|")[0];
+                        currentOwner.Captain_Role = row[1] == "#N/A" ? "" : row[1]?.split("|")[1];
                         continue;
                     }
 
@@ -109,14 +113,14 @@ export default function Auction() {
             setData(owners);
 
             // if (rows[27] != "#N/A" && rows[27][0] != "") { setCurrentSold({ image: rows[27][10], points: rows[27][1] || "", name: rows[27][3] || "", team: rows[27][2] || "", age: rows[27][4] || "", category: rows[27][5] || "", city: rows[27][6] || "", role: rows[27][7] || "", bat_style: rows[27][8] || "", ball_style: rows[27][8] || "", }) }
-            // if (rows[28] != "#N/A" && rows[28][0] != "") { setLastSold({ name: rows[28][3], team: rows[28][2], points: rows[28][1], }) }
+            if (rows[28] != "#N/A" && rows[28][0] != "") { setLastSold({ name: rows[28][3], team: rows[28][2], points: rows[28][1], }) }
 
         } catch (err) {
             console.error("❌ Error:", err);
         }
     };
 
-
+    console.log(data)
     return (
 
 
@@ -141,7 +145,14 @@ export default function Auction() {
                                     </div>
                                     <div className="clscaptainname d-flex">
                                         <div className="clstbcol clstbcol1 flex-grow-1">
-                                            <p><b>{data[0]?.FirstPlayer}</b><span>(C)</span></p>
+                                            <p><b>{data[0]?.Captain}</b><span>(C)</span></p>
+                                            {data[0]?.Captain_Role?.trim() == "Bowler" ? (
+                                                <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                                            ) : data[0]?.Captain_Role?.trim() == "Batsmen" ? (
+                                                <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                                            ) : data[0]?.Captain_Role?.trim() == "All rounder" ? (
+                                                <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                                            ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -223,7 +234,14 @@ export default function Auction() {
                                     </div>
                                     <div className="clscaptainname d-flex">
                                         <div className="clstbcol clstbcol1 flex-grow-1">
-                                            <p><b>{data[1]?.FirstPlayer}</b><span>(C)</span></p>
+                                            <p><b>{data[1]?.Captain}</b><span>(C)</span></p>
+                                                    {data[1]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[1]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[1]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -305,7 +323,14 @@ export default function Auction() {
                                     </div>
                                     <div className="clscaptainname d-flex">
                                         <div className="clstbcol clstbcol1 flex-grow-1">
-                                            <p><b>{data[2]?.FirstPlayer}</b><span>(C)</span></p>
+                                            <p><b>{data[2]?.Captain}</b><span>(C)</span></p>
+                                                    {data[2]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[2]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[2]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -387,7 +412,14 @@ export default function Auction() {
                                     </div>
                                     <div className="clscaptainname d-flex">
                                         <div className="clstbcol clstbcol1 flex-grow-1">
-                                            <p><b>{data[3]?.FirstPlayer}</b><span>(C)</span></p>
+                                            <p><b>{data[3]?.Captain}</b><span>(C)</span></p>
+                                                    {data[3]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[3]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[3]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -464,6 +496,16 @@ export default function Auction() {
                         <div className="clsscl text-center">
                             <img src="/scl.svg" alt="" height={120} />
                         </div>
+                        {lastSold && (<div className="clslastsoldout">
+                            <div className="clsplydetails">
+                                <h5>Last Sold</h5>
+                                <h3>{lastSold?.name}</h3>
+                                <div className="clssoltpointinfo">
+                                    <h4>{lastSold?.team}</h4>
+                                    <p><span>{lastSold?.points}</span> Points</p>
+                                </div>
+                            </div>
+                        </div>)}
                     </div>
 
                     <div className="col-12 order-3 clsmaincol clsmaincol3">
@@ -484,7 +526,14 @@ export default function Auction() {
                                     </div>
                                     <div className="clscaptainname d-flex">
                                         <div className="clstbcol clstbcol1 flex-grow-1">
-                                            <p><b>{data[4]?.FirstPlayer}</b><span>(C)</span></p>
+                                            <p><b>{data[4]?.Captain}</b><span>(C)</span></p>
+                                                    {data[4]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[4]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[4]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -566,7 +615,14 @@ export default function Auction() {
                                     </div>
                                     <div className="clscaptainname d-flex">
                                         <div className="clstbcol clstbcol1 flex-grow-1">
-                                            <p><b>{data[5]?.FirstPlayer}</b><span>(C)</span></p>
+                                            <p><b>{data[5]?.Captain}</b><span>(C)</span></p>
+                                                    {data[5]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[5]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[5]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -648,7 +704,14 @@ export default function Auction() {
                                     </div>
                                     <div className="clscaptainname d-flex">
                                         <div className="clstbcol clstbcol1 flex-grow-1">
-                                            <p><b>{data[6]?.FirstPlayer}</b><span>(C)</span></p>
+                                            <p><b>{data[6]?.Captain}</b><span>(C)</span></p>
+                                                    {data[6]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[6]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[6]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
@@ -730,7 +793,14 @@ export default function Auction() {
                                     </div>
                                     <div className="clscaptainname d-flex">
                                         <div className="clstbcol clstbcol1 flex-grow-1">
-                                            <p><b>{data[7]?.FirstPlayer}</b><span>(C)</span></p>
+                                            <p><b>{data[7]?.Captain}</b><span>(C)</span></p>
+                                                    {data[7]?.Captain_Role?.trim() == "Bowler" ? (
+                        <div classNameName="clsplyicon"><img src="/boller-icon.svg" height={16} alt="" /></div>
+                      ) : data[7]?.Captain_Role?.trim() == "Batsmen" ? (
+                        <div classNameName="clsplyicon"><img src="/bastman-icon.svg" height={16} alt="" /></div>
+                      ) : data[7]?.Captain_Role?.trim() == "All rounder" ? (
+                        <div classNameName="clsplyicon"><img src="/all-rounder-icon.svg" height={16} alt="" /></div>
+                      ) : <div style={{ height: 16 }}></div>}
                                         </div>
                                         <div className="clstbcol clstbcol2">&nbsp;</div>
                                     </div>
