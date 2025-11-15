@@ -496,8 +496,8 @@ export default function Auction() {
                             <img src="/scl.svg" alt="" height={120} />
                         </div>
 
-                        <div className="clspoweredby text-center mb-3">
-                            <p className='fs-7'>Lead By MR. Nkhil Madrasi</p>
+                        <div className="clspoweredby text-center mb-3" style={{marginTop: -35}}>
+                            <p style={{fontSize: 10}}>Lead By MR. NIKHIL MADRASI</p>
                         </div>
 
                         {lastSold && (<div className="clslastsoldout">
